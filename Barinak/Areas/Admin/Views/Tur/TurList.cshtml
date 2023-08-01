@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Barinak.Models.Tur>
+
+@{
+    ViewData["Title"] = "TurList";
+}
+
+<h1>TurList</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TurCins)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TurAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TurYas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategori)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TurCins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TurAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TurYas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategori.KategoriID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TurID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TurID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TurID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
