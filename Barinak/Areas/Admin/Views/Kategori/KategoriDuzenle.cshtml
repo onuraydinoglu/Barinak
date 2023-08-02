@@ -1,33 +1,33 @@
 ﻿@model Barinak.Models.Kategori
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "KategoriDuzenle";
 }
+
 <div class="clearfix">
-    <h4 class="float-start">Kategori Kaydet</h4>
-    <a type="button" class="btn btn-success float-end" asp-action="KategoriList">Kategorileri Listele</a>
+    <h4 class="float-start">Kategori Düzenle</h4>
+    <a type="button" class="btn btn-success float-end" asp-action="KategoriList">Kategorileri Listelene Geri Dön</a>
 </div>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Kaydet">
+        <form asp-action="KategoriDuzenle">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="KategoriID" />
             <div class="form-group">
                 <label asp-for="KategoriAdi" class="control-label"></label>
                 <input asp-for="KategoriAdi" class="form-control" />
                 <span asp-validation-for="KategoriAdi" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Kategori Kaydet" class="btn btn-primary" />
+                <input type="submit" value="Kategori Düzenle" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 
-
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -12,16 +12,52 @@ namespace Barinak.Areas.Admin.Controllers
         {
             return View();
         }
-        public IActionResult Kaydet(Login Login)
+
+        public IActionResult Kaydet(UyeOl UyeOl)
         {
-            t.Loginler.Add(Login);
+            t.Uyeler.Add(UyeOl);
             t.SaveChanges();
-            return RedirectToAction("Signup");
+            return RedirectToAction("Index");
         }
-        public IActionResult KullanicilarListesi()
+        public IActionResult UyeList()
         {
-            var Loginler = t.Loginler.ToList();
-            return View(Loginler);
+            var Uyeler = t.Uyeler.ToList();
+            return View(Uyeler);
+        }
+
+        [HttpPost]
+        public IActionResult UyeDuzenle(int? id, UyeOl y)
+        {
+            if (id != y.UyeOlID)
+            {
+                TempData["hata"] = "Güncelleme Yapılmaz";
+                return View("Hata");
+            }
+            if (ModelState.IsValid)
+            {
+                t.Uyeler.Update(y);
+                t.SaveChanges();
+                TempData["msj"] = y.Ad + " adlı yazar düzenlendi";
+                return RedirectToAction("Index");
+            }
+            TempData["Hata"] = "Lütfen verileri eksiksiz girin";
+            return View();
+        }
+        public IActionResult UyeDuzenle(int? id)
+        {
+            if (id is null)
+            {
+                TempData["hata"] = "Düzenleme kısmı çalışamaz";
+                return View("Hata");
+            }
+            var y = t.Uyeler.FirstOrDefault(x => x.UyeOlID == id);
+            if (y is null)
+            {
+                TempData["hata"] = "Düzenlenece herhangi bir yazar yok";
+                return View("Hata");
+
+            }
+            return View(y);
         }
     }
 }

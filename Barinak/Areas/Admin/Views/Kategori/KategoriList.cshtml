@@ -4,11 +4,18 @@
     ViewData["Title"] = "KategoriList";
 }
 
-<h1>KategoriList</h1>
+@if (TempData["msj"] is not null)
+{
+    <div style="color:danger">@TempData["msj"]</div>
+}
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
+<div class="clearfix">
+    <h4 class="float-start">Kategori Listele</h4>
+    <a type="button" class="btn btn-success float-end" asp-action="Index">Kategorileri Kaydet</a>
+</div>
+
+<hr />
 <table class="table">
     <thead>
         <tr>
@@ -31,7 +38,7 @@
                 @Html.DisplayFor(modelItem => item.KategoriAdi)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.KategoriID">Edit</a> |
+                <a asp-action="KategoriDuzenle" asp-route-id="@item.KategoriID">Düzenle</a> |
                 <a asp-action="Details" asp-route-id="@item.KategoriID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.KategoriID">Delete</a>
             </td>

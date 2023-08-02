@@ -26,5 +26,40 @@ namespace Barinak.Areas.Admin.Controllers
             var Kategoriler = k.Kategoriler.ToList();
             return View(Kategoriler);
         }
+
+        [HttpPost]
+        public IActionResult KategoriDuzenle(int? id, Kategori y)
+        {
+            if (id != y.KategoriID)
+            {
+                TempData["hata"] = "Güncelleme Yapılmaz";
+                return View("Hata");
+            }
+            if (ModelState.IsValid)
+            {
+                k.Kategoriler.Update(y);
+                k.SaveChanges();
+                TempData["msj"] = y.KategoriAdi + " Kategorisi düzenlendi";
+                return RedirectToAction("KategoriList");
+            }
+            TempData["Hata"] = "Lütfen verileri eksiksiz girin";
+            return View();
+        }
+        public IActionResult KategoriDuzenle(int? id)
+        {
+            if (id is null)
+            {
+                TempData["hata"] = "Düzenleme kısmı çalışamaz";
+                return View("Hata");
+            }
+            var y = k.Kategoriler.FirstOrDefault(x => x.KategoriID == id);
+            if (y is null)
+            {
+                TempData["hata"] = "Düzenlenece herhangi bir yazar yok";
+                return View("Hata");
+
+            }
+            return View(y);
+        }
     }
 }

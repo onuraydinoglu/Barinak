@@ -1,19 +1,21 @@
 ﻿@model Barinak.Models.UyeOl
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "UyeDuzenle";
 }
 
 <div class="clearfix">
-    <h4 class="float-start">Üye Kaydet</h4>
-    <a type="button" class="btn btn-success float-end" asp-action="UyeList">Uyeleri Listele</a>
+    <h4 class="float-start">Üye Düzenle</h4>
+    <a type="button" class="btn btn-success float-end" asp-action="UyeList">Üyeler Sayfasına Geri Dön</a>
 </div>
+
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Kaydet">
+        <form asp-action="UyeDuzenle">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UyeOlID" />
             <div class="form-group">
                 <label asp-for="Ad" class="control-label"></label>
                 <input asp-for="Ad" class="form-control" />
@@ -50,7 +52,7 @@
                 <span asp-validation-for="Şehir" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Üye Kaydet" class="btn btn-primary" />
+                <input type="submit" value="Düzenle" class="btn btn-primary" />
             </div>
         </form>
     </div>

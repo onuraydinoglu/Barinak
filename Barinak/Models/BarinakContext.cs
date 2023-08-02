@@ -7,7 +7,7 @@ namespace Barinak.Models
     {
         public DbSet<Kategori> Kategoriler { get; set; }
         public DbSet<Tur> Turler { get; set; }
-        public DbSet<Login> Loginler { get; set; }
+        public DbSet<UyeOl> Uyeler { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -15,6 +15,6 @@ namespace Barinak.Models
             Database=Barinak;Trusted_Connection=true;");
         }
 
-        public DbSet<Barinak.Models.Login>? Login { get; set; }
+        // public DbSet<Barinak.Models.UyeOl>? UyeOl { get; set; }
     }
 }

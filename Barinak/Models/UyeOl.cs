@@ -2,38 +2,38 @@
 
 namespace Barinak.Models
 {
-    public class Login
+    public class UyeOl
     {
-        public int LoginID { get; set; }
+        public int UyeOlID { get; set; }
 
         [Required(ErrorMessage = "Adınızı Girin")]
         [Display(Name = "Ad")]
-        public string Firstname { get; set; }
+        public string Ad { get; set; }
 
         [Required(ErrorMessage = "Soyadınızı Girin")]
         [Display(Name = "Soyad")]
-        public string Lastname { get; set; }
+        public string Soyad { get; set; }
 
         [EmailAddress(ErrorMessage = "Geçerli Bir Email Girin")]
         [Required(ErrorMessage = "Email Girin")]
         [Display(Name = "Email")]
-        public string Email { get; set; }
+        public string Mail { get; set; }
 
         [Required(ErrorMessage = "Şifrenizi Girin")]
         [Display(Name = "Şifre")]
-        public string Password { get; set; }
-        [Compare("Password", ErrorMessage = "Şifreler Uyumsuz")]
+        public string Sifre { get; set; }
+        [Compare("Sifre", ErrorMessage = "Şifreler Uyumsuz")]
         [Required(ErrorMessage = "Şifrenizi Girin")]
         [Display(Name = "Şifre Tekrar")]
-        public string ConfirmPassword { get; set; }
+        public string SifreKontrol { get; set; }
 
         [Phone(ErrorMessage = "Geçerli Telefon Girin")]
         [Required(ErrorMessage = "Telefonunuzu Girin")]
         [Display(Name = "Telefon")]
-        public string Phone { get; set; }
+        public string Telefon { get; set; }
 
         [Required(ErrorMessage = "Şehrinizi Girin")]
         [Display(Name = "Şehir")]
-        public string City { get; set; }
+        public string Şehir { get; set; }
     }
 }
