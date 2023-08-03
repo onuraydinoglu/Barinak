@@ -1,4 +1,4 @@
-﻿@if (TempData["hata"] is not null)
+﻿@if (TempData["msj"] is not null)
 {
-    <h4 style="color:palevioletred">@TempData["hata"]</h4>
+    <div class="text-danger">@TempData["msj"]</div>
 }

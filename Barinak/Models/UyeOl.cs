@@ -19,10 +19,12 @@ namespace Barinak.Models
         [Display(Name = "Email")]
         public string Mail { get; set; }
 
+        [DataType(DataType.Password)]
         [Required(ErrorMessage = "Şifrenizi Girin")]
         [Display(Name = "Şifre")]
         public string Sifre { get; set; }
         [Compare("Sifre", ErrorMessage = "Şifreler Uyumsuz")]
+        [DataType(DataType.Password)]
         [Required(ErrorMessage = "Şifrenizi Girin")]
         [Display(Name = "Şifre Tekrar")]
         public string SifreKontrol { get; set; }
@@ -35,5 +37,10 @@ namespace Barinak.Models
         [Required(ErrorMessage = "Şehrinizi Girin")]
         [Display(Name = "Şehir")]
         public string Şehir { get; set; }
+
+        internal object Where(Func<object, bool> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

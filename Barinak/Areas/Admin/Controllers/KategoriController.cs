@@ -1,5 +1,6 @@
 ﻿using Barinak.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Barinak.Areas.Admin.Controllers
 {
@@ -61,5 +62,49 @@ namespace Barinak.Areas.Admin.Controllers
             }
             return View(y);
         }
+
+        public IActionResult KategoriDetay(int? id)
+        {
+            if (id is null)
+            {
+                TempData["hata"] = "Detay kısmı getirilemez";
+                return View("Hata");
+            }
+
+            var y = k.Kategoriler.Include(x => x.Turler).FirstOrDefault(x => x.KategoriID == id);
+            if (y is null)
+            {
+                TempData["hata"] = "Herhangi bir yazar bulunamadı";
+                return View("Hata");
+            }
+            return View(y);
+        }
+
+        public IActionResult KategoriSil(int? id)
+        {
+            if (id is null)
+            {
+                TempData["hata"] = "Silme kısmı çalışamaz";
+                return View("Hata");
+            }
+            var y = k.Kategoriler.Include(x => x.Turler).FirstOrDefault(x => x.KategoriID == id);
+            if (y is null)
+            {
+                TempData["hata"] = "Silinecek herhangi bir yazar yok";
+                return View("Hata");
+
+            }
+            if (y.Turler.Count > 0)
+            {
+                TempData["hata"] = "Yazarın kitabı olduğundan silme işlemi yapılamaz";
+                return View("Hata");
+            }
+            k.Kategoriler.Remove(y);
+            k.SaveChanges();
+            TempData["msj"] = y.KategoriAdi + " adlı kategori silindi";
+            return RedirectToAction("KategoriList");
+        }
+
+
     }
 }

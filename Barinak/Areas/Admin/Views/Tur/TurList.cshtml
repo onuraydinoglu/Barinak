@@ -3,12 +3,10 @@
 @{
     ViewData["Title"] = "TurList";
 }
-
-<h1>TurList</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="clearfix">
+    <h4 class="float-start">Tur Listele</h4>
+    <a type="button" class="btn btn-success float-end" asp-action="TurList">Tur Kaydet</a>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -43,9 +41,9 @@
                 @Html.DisplayFor(modelItem => item.Kategori.KategoriID)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TurID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TurID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TurID">Delete</a>
+                <a asp-action="TurDuzenle" asp-route-id="@item.TurID">Düzenle</a> |
+                <a asp-action="TurDuzenle" asp-route-id="@item.TurID">Düzenle</a> |
+                <a asp-action="TurSil" asp-route-id="@item.TurID">Sil</a>
             </td>
         </tr>
 }

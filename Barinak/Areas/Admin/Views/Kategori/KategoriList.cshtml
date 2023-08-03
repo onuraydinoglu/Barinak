@@ -6,7 +6,7 @@
 
 @if (TempData["msj"] is not null)
 {
-    <div style="color:danger">@TempData["msj"]</div>
+    <div class="text-danger">@TempData["msj"]</div>
 }
 
 
@@ -39,8 +39,8 @@
             </td>
             <td>
                 <a asp-action="KategoriDuzenle" asp-route-id="@item.KategoriID">Düzenle</a> |
-                <a asp-action="Details" asp-route-id="@item.KategoriID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.KategoriID">Delete</a>
+                <a asp-action="KategoriDetay" asp-route-id="@item.KategoriID">Detay</a> |
+                <a asp-action="KategoriSil" asp-route-id="@item.KategoriID">Sil</a>
             </td>
         </tr>
 }

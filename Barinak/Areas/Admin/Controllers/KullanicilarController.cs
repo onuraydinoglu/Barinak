@@ -1,5 +1,6 @@
 ﻿using Barinak.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Barinak.Areas.Admin.Controllers
 {
@@ -13,11 +14,12 @@ namespace Barinak.Areas.Admin.Controllers
             return View();
         }
 
+        // Uye Kaydetme
         public IActionResult Kaydet(UyeOl UyeOl)
         {
             t.Uyeler.Add(UyeOl);
             t.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("UyeList");
         }
         public IActionResult UyeList()
         {
@@ -25,6 +27,7 @@ namespace Barinak.Areas.Admin.Controllers
             return View(Uyeler);
         }
 
+        // Uye Düzenleme
         [HttpPost]
         public IActionResult UyeDuzenle(int? id, UyeOl y)
         {
@@ -38,7 +41,7 @@ namespace Barinak.Areas.Admin.Controllers
                 t.Uyeler.Update(y);
                 t.SaveChanges();
                 TempData["msj"] = y.Ad + " adlı yazar düzenlendi";
-                return RedirectToAction("Index");
+                return RedirectToAction("UyeList");
             }
             TempData["Hata"] = "Lütfen verileri eksiksiz girin";
             return View();
@@ -58,6 +61,45 @@ namespace Barinak.Areas.Admin.Controllers
 
             }
             return View(y);
+        }
+
+        // Uye Detay
+        public IActionResult UyeDetay(int? id)
+        {
+            if (id is null)
+            {
+                TempData["hata"] = "Detay kısmı getirilemez";
+                return View("Hata");
+            }
+
+            var y = t.Uyeler.FirstOrDefault(x => x.UyeOlID == id);
+            if (y is null)
+            {
+                TempData["hata"] = "Herhangi bir yazar bulunamadı";
+                return View("Hata");
+            }
+            return View(y);
+        }
+
+        // Uye Silme
+        public IActionResult UyeSil(int? id)
+        {
+            if (id is null)
+            {
+                TempData["hata"] = "Silme kısmı çalışamaz";
+                return View("Hata");
+            }
+            var y =t.Uyeler.FirstOrDefault(x => x.UyeOlID == id);
+            if (y is null)
+            {
+                TempData["hata"] = "Silinecek herhangi bir yazar yok";
+                return View("Hata");
+
+            }
+            t.Uyeler.Remove(y);
+            t.SaveChanges();
+            TempData["msj"] = y.Ad + " adlı uye silindi";
+            return RedirectToAction("UyeList");
         }
     }
 }

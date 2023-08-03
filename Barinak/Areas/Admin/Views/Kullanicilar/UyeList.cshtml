@@ -4,6 +4,11 @@
     ViewData["Title"] = "UyeList";
 }
 
+@if (TempData["msj"] is not null)
+{
+    <div>@TempData["msj"]</div>
+}
+
 <div class="clearfix">
     <h4 class="float-start">Üyeler Listesi</h4>
     <a type="button" class="btn btn-success float-end" asp-action="Index">Yeni Kullanıcı Ekle</a>
@@ -64,8 +69,8 @@
             </td>
             <td>
                 <a asp-action="UyeDuzenle" asp-route-id="@item.UyeOlID">Düzenle</a> |
-                <a asp-action="Details" asp-route-id="@item.UyeOlID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.UyeOlID">Delete</a>
+                <a asp-action="UyeDetay" asp-route-id="@item.UyeOlID">Detay</a> |
+                <a asp-action="UyeSil" asp-route-id="@item.UyeOlID">Sil</a>
             </td>
         </tr>
 }
