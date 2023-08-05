@@ -10,6 +10,7 @@ namespace Barinak.Models
         public int Mail { get; set; }
 
         [Required(ErrorMessage = "Şifrenizi Girin")]
+        [DataType(DataType.Password)]
         [Display(Name = "Şifre")]
         public string Sifre { get; set; }
     }

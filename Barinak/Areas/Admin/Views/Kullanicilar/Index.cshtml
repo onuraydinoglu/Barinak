@@ -1,62 +1,79 @@
-﻿@model Barinak.Models.UyeOl
+﻿@model IEnumerable<Barinak.Models.UyeOl>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "UyeList";
 }
 
+@if (TempData["msj"] is not null)
+{
+    <div>@TempData["msj"]</div>
+}
 
 <div class="clearfix">
-    <h4 class="float-start">Üye Kaydet</h4>
-    <a type="button" class="btn btn-success float-end" asp-action="UyeList">Uyeleri Listele</a>
+    <h4 class="float-start">Üyeler Listesi</h4>
+    <a type="button" class="btn btn-success float-end" asp-action="Index">Yeni Kullanıcı Ekle</a>
 </div>
+
 
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Kaydet">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Ad" class="control-label"></label>
-                <input asp-for="Ad" class="form-control" />
-                <span asp-validation-for="Ad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Soyad" class="control-label"></label>
-                <input asp-for="Soyad" class="form-control" />
-                <span asp-validation-for="Soyad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mail" class="control-label"></label>
-                <input asp-for="Mail" class="form-control" />
-                <span asp-validation-for="Mail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sifre" class="control-label"></label>
-                <input asp-for="Sifre" class="form-control" />
-                <span asp-validation-for="Sifre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SifreKontrol" class="control-label"></label>
-                <input asp-for="SifreKontrol" class="form-control" />
-                <span asp-validation-for="SifreKontrol" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefon" class="control-label"></label>
-                <input asp-for="Telefon" class="form-control" />
-                <span asp-validation-for="Telefon" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Şehir" class="control-label"></label>
-                <input asp-for="Şehir" class="form-control" />
-                <span asp-validation-for="Şehir" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Üye Kaydet" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UyeOlID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sifre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Şehir)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UyeOlID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sifre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Şehir)
+                </td>
+                <td>
+                    <a asp-action="UyeDuzenle" asp-route-id="@item.UyeOlID">Düzenle</a> |
+                    <a asp-action="UyeDetay" asp-route-id="@item.UyeOlID">Detay</a> |
+                    <a asp-action="UyeSil" asp-route-id="@item.UyeOlID">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

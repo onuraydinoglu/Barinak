@@ -18,7 +18,7 @@ namespace Barinak.Models
         [Display(Name = "Yaşı")]
         public string TurYas { get; set; }
 
-        public int? KategoriID { get; set; }
+        public int KategoriID { get; set; }
 
         public Kategori Kategori { get; set; }
     }

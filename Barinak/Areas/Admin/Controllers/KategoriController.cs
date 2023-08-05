@@ -12,20 +12,28 @@ namespace Barinak.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Kaydet(Kategori Kategori)
-        {
-            k.Kategoriler.Add(Kategori);
-            k.SaveChanges();
-            return RedirectToAction("KategoriList");
-        }
-
-        public IActionResult KategoriList()
-        {
             var Kategoriler = k.Kategoriler.ToList();
             return View(Kategoriler);
+        }
+
+        public IActionResult KategoriEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult KategoriEkle(Kategori Kategori)
+        {
+            if (ModelState.IsValid)
+            {
+                k.Add(Kategori);
+                k.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["hata"] = "Lütfen Gerekli alanları doldurunuz";
+                return RedirectToAction("KategoriEkle");
+            }
         }
 
         [HttpPost]
@@ -41,7 +49,7 @@ namespace Barinak.Areas.Admin.Controllers
                 k.Kategoriler.Update(y);
                 k.SaveChanges();
                 TempData["msj"] = y.KategoriAdi + " Kategorisi düzenlendi";
-                return RedirectToAction("KategoriList");
+                return RedirectToAction("Index");
             }
             TempData["Hata"] = "Lütfen verileri eksiksiz girin";
             return View();
@@ -102,7 +110,7 @@ namespace Barinak.Areas.Admin.Controllers
             k.Kategoriler.Remove(y);
             k.SaveChanges();
             TempData["msj"] = y.KategoriAdi + " adlı kategori silindi";
-            return RedirectToAction("KategoriList");
+            return RedirectToAction("Index");
         }
 
 

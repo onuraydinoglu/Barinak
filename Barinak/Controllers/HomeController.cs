@@ -1,6 +1,7 @@
 ﻿using Barinak.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Barinak.Controllers
@@ -18,25 +19,20 @@ namespace Barinak.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        public IActionResult Kaydet(Kategori Kategori)
-        {
-            k.Kategoriler.Add(Kategori);
-            k.SaveChanges();
-            return RedirectToAction("KategoriList");
-        }
-
-        public IActionResult KategoriList()
-        {
             var Kategoriler = k.Kategoriler.ToList();
             return View(Kategoriler);
+        }
+
+
+        public IActionResult KategoriDetay(int? id)
+        {
+            var y = k.Kategoriler.Include(x => x.Turler).FirstOrDefault(x => x.KategoriID == id);
+            if (y is null)
+            {
+                TempData["hata"] = "Böyle bir kategori yok";
+                return View("Hata");
+            }
+            return View(y);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,10 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Barinak.Models.Kategori>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+@{
+    ViewData["Title"] = "KategoriList";
+}
+<h1>Kategori Listesi</h1>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayNameFor(model => model.KategoriAdi)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.KategoriAdi)</p>
+                    <a class="btn btn-primary" asp-action="KategoriDetay" asp-route-id="@item.KategoriID">@Html.DisplayFor(modelItem => item.KategoriAdi) Kategorisine Git</a>
+                </div>
+            </div>
+        </div>
+    }
 </div>
 
 

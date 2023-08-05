@@ -11,21 +11,30 @@ namespace Barinak.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Kaydet(Tur Tur)
-        {
-            t.Turler.Add(Tur);
-            t.SaveChanges();
-            return RedirectToAction("TurList");
-        }
-
-        public IActionResult TurList()
-        {
             var Turler = t.Turler.ToList();
             return View(Turler);
         }
+
+        public IActionResult TurEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult TurEkle(Tur Tur)
+        {
+            if (ModelState.IsValid)
+            {
+                t.Turler.Add(Tur);
+                t.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["hata"] = "Lütfen Gerekli alanları doldurunuz";
+                return RedirectToAction("TurEkle");
+            }
+        }
+
 
         [HttpPost]
         public IActionResult TurDuzenle(int? id, Tur y)
@@ -40,7 +49,7 @@ namespace Barinak.Areas.Admin.Controllers
                 t.Turler.Update(y);
                 t.SaveChanges();
                 TempData["msj"] = y.TurID + " Olan ID düzenlendi";
-                return RedirectToAction("TurList");
+                return RedirectToAction("Index");
             }
             TempData["Hata"] = "Lütfen verileri eksiksiz girin";
             return View();
@@ -96,7 +105,7 @@ namespace Barinak.Areas.Admin.Controllers
             t.Turler.Remove(y);
             t.SaveChanges();
             TempData["msj"] = y.TurAd + " adlı Tur silindi";
-            return RedirectToAction("TurList");
+            return RedirectToAction("Index");
         }
 
 
