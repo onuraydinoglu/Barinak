@@ -266,3 +266,10 @@ C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\bin\Debug\net6.0\runtimes\win\
 C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\bin\Debug\net6.0\en-US\Barinak.resources.dll
+C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\bin\Debug\net6.0\tr-TR\Barinak.resources.dll
+C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\obj\Debug\net6.0\Barinak.Resources.SharedResource.en-US.resources
+C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\obj\Debug\net6.0\Barinak.Resources.SharedResource.tr-TR.resources
+C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\obj\Debug\net6.0\Barinak.csproj.GenerateResource.cache
+C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\obj\Debug\net6.0\en-US\Barinak.resources.dll
+C:\Users\ONUR\OneDrive\Masaüstü\Barinak\Barinak\obj\Debug\net6.0\tr-TR\Barinak.resources.dll

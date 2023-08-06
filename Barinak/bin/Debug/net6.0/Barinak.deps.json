@@ -14,6 +14,14 @@
         },
         "runtime": {
           "Barinak.dll": {}
+        },
+        "resources": {
+          "en-US/Barinak.resources.dll": {
+            "locale": "en-US"
+          },
+          "tr-TR/Barinak.resources.dll": {
+            "locale": "tr-TR"
+          }
         }
       },
       "Azure.Core/1.24.0": {
