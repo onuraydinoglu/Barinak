@@ -38,6 +38,8 @@ namespace Barinak.Models
         [Display(Name = "Şehir")]
         public string Şehir { get; set; }
 
+        public string? Role { get; set; }
+
         internal object Where(Func<object, bool> value)
         {
             throw new NotImplementedException();

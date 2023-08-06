@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http;
 @{
-    var ad = Context.Request.Cookies["UserAd"];
+    var ad = Context.Request.Cookies["UserRole"];
 }
 
 <h4>Session kullanıcı Mail Adresi=@Context.Session.GetString("SessionMail")</h4>

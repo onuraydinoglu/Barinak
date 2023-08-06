@@ -15,7 +15,7 @@
             <div class="card">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayNameFor(model => model.KategoriAdi)</h5>
+                    <h5 class="card-title">@language.Getkey("KategoriAdi")</h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.KategoriAdi)</p>
                     <a class="btn btn-primary" asp-action="KategoriDetay" asp-route-id="@item.KategoriID">@Html.DisplayFor(modelItem => item.KategoriAdi) Kategorisine Git</a>
                 </div>

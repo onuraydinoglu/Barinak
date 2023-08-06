@@ -23,13 +23,12 @@ namespace Barinak.Controllers
                      Expires = DateTime.Now.AddSeconds(10)
                  };
                  HttpContext.Session.SetString("SessionMail", uye.Mail);
-                 HttpContext.Response.Cookies.Append("UserAd", usr.Ad , cookopt);
+                 HttpContext.Response.Cookies.Append("UserRole", usr.Ad , cookopt);
                  return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
              }
              TempData["msj"] = "Hatalı Giriş Yapıldı";
              return View("Index");
-         }
-
+        }
 
     }
 }

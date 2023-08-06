@@ -14,7 +14,5 @@ namespace Barinak.Models
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;
             Database=Barinak;Trusted_Connection=true;");
         }
-
-        // public DbSet<Barinak.Models.UyeOl>? UyeOl { get; set; }
     }
 }

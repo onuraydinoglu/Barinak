@@ -24,7 +24,6 @@ namespace Barinak.Controllers
         public IActionResult Index()
         {
             ViewBag.Category = _localization.Getkey("Category").Value;
-            ViewBag.Category = _localization.Getkey("as").Value;
             var currentCulture = Thread.CurrentThread.CurrentCulture.Name;
 
             var Kategoriler = k.Kategoriler.ToList();

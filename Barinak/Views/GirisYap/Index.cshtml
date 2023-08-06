@@ -9,6 +9,8 @@
     <div class="text-danger">@TempData["msj"]</div>
 }
 
+@inject LanguageService language
+
 <div class="clearfix">
     <h4 class="float-start">Giriş Yap</h4>
 </div>
@@ -20,17 +22,17 @@
         <form asp-action="GirisYap">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Mail" class="control-label"></label>
+                <label asp-for="Mail" class="control-label">@language.Getkey("Mail")</label>
                 <input asp-for="Mail" class="form-control" />
                 <span asp-validation-for="Mail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Sifre" class="control-label"></label>
+                <label asp-for="Sifre" class="control-label">@language.Getkey("Sifre")</label>
                 <input asp-for="Sifre" class="form-control" />
                 <span asp-validation-for="Sifre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Giris Yap" class="btn btn-primary" />
+                <input type="submit" value="@language.Getkey("GirisYap")" class="btn btn-primary" />
             </div>
         </form>
     </div>

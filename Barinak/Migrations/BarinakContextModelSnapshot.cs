@@ -101,6 +101,10 @@ namespace Barinak.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("aa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Şehir")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
