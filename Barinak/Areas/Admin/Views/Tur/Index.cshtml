@@ -3,16 +3,20 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+@if (TempData["msj"] is not null)
+{
+    <div class="text-danger">@TempData["msj"]</div>
+}
+
 <div class="clearfix">
-    <h4 class="float-start">Tur Listele</h4>
-    <a type="button" class="btn btn-success float-end" asp-action="TurEkle">Tur Kaydet</a>
+    <h4 class="float-start">Turler</h4>
+    <a type="button" class="btn btn-success float-end" asp-action="TurEkle">Tur Ekle</a>
 </div>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TurID)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.TurCins)
             </th>
@@ -29,30 +33,26 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TurID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TurCins)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TurAd)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TurYas)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.KategoriID)
-                </td>
-                <td>
-                    <a asp-action="TurDuzenle" asp-route-id="@item.TurID">Düzenle</a> |
-                    <a asp-action="TurDetay" asp-route-id="@item.TurID">Detay</a> |
-                    <a asp-action="TurSil" asp-route-id="@item.TurID">Sil</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TurCins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TurAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TurYas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriID)
+            </td>
+            <td>
+                <a asp-action="TurDuzenle" asp-route-id="@item.TurID">Düzenle</a> |
+                <a asp-action="TurDetay" asp-route-id="@item.TurID">Detay</a> |
+                <a asp-action="TurSil" asp-route-id="@item.TurID">Sil</a>
+            </td>
+        </tr>
+}
     </tbody>
 </table>

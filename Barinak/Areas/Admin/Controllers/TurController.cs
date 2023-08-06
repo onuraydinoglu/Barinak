@@ -30,8 +30,9 @@ namespace Barinak.Areas.Admin.Controllers
             }
             else
             {
-                TempData["hata"] = "Lütfen Gerekli alanları doldurunuz";
-                return RedirectToAction("TurEkle");
+                t.Turler.Add(Tur);
+                t.SaveChanges();
+                return RedirectToAction("Index");
             }
         }
 
@@ -51,20 +52,22 @@ namespace Barinak.Areas.Admin.Controllers
                 TempData["msj"] = y.TurID + " Olan ID düzenlendi";
                 return RedirectToAction("Index");
             }
-            TempData["Hata"] = "Lütfen verileri eksiksiz girin";
-            return View();
+            t.Turler.Update(y);
+            t.SaveChanges();
+            TempData["msj"] = y.TurID + " Olan ID düzenlendi";
+            return RedirectToAction("Index");
         }
         public IActionResult TurDuzenle(int? id)
         {
             if (id is null)
             {
-                TempData["hata"] = "Düzenleme kısmı çalışamaz";
+                TempData["msj"] = "Düzenleme kısmı çalışamaz";
                 return View("Hata");
             }
             var y = t.Turler.FirstOrDefault(x => x.TurID == id);
             if (y is null)
             {
-                TempData["hata"] = "Düzenlenecek herhangi bir tur yok";
+                TempData["msj"] = "Düzenlenecek herhangi bir tur yok";
                 return View("Hata");
 
             }
@@ -75,14 +78,14 @@ namespace Barinak.Areas.Admin.Controllers
         {
             if (id is null)
             {
-                TempData["hata"] = "Detay kısmı getirilemez";
+                TempData["msj"] = "Detay kısmı getirilemez";
                 return View("Hata");
             }
 
             var y = t.Turler.FirstOrDefault(x => x.TurID == id);
             if (y is null)
             {
-                TempData["hata"] = "Herhangi bir yazar bulunamadı";
+                TempData["msj"] = "Herhangi bir tur bulunamadı";
                 return View("Hata");
             }
             return View(y);
@@ -98,7 +101,7 @@ namespace Barinak.Areas.Admin.Controllers
             var y = t.Turler.FirstOrDefault(x => x.TurID == id);
             if (y is null)
             {
-                TempData["hata"] = "Silinecek herhangi bir yazar yok";
+                TempData["msj"] = "Silinecek herhangi bir tur yok";
                 return View("Hata");
 
             }

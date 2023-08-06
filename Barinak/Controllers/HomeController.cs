@@ -29,7 +29,7 @@ namespace Barinak.Controllers
             var y = k.Kategoriler.Include(x => x.Turler).FirstOrDefault(x => x.KategoriID == id);
             if (y is null)
             {
-                TempData["hata"] = "Böyle bir kategori yok";
+                TempData["msj"] = "Böyle bir kategori yok";
                 return View("Hata");
             }
             return View(y);

@@ -3,10 +3,17 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+@if (TempData["msj"] is not null)
+{
+    <div class="text-danger">@TempData["msj"]</div>
+}
+
 <div class="clearfix">
     <h4 class="float-start">Kategoriler</h4>
-    <a type="button" class="btn btn-success float-end" asp-action="Kategoriekle">Kategorileri Ekle</a>
+    <a type="button" class="btn btn-success float-end" asp-action="KategoriEkle">Kategorileri Ekle</a>
 </div>
+
 <table class="table">
     <thead>
         <tr>

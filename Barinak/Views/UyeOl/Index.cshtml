@@ -4,10 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="clearfix">
+    <h4 class="float-start">Üye Ol</h4>
+</div>
 
-<h4>UyeOl</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Kaydet">
@@ -52,10 +54,6 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

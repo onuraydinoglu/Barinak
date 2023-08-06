@@ -20,7 +20,7 @@ namespace Barinak.Controllers
              {
                  var cookopt = new CookieOptions
                  {
-                     Expires = DateTime.Now.AddSeconds(1000)
+                     Expires = DateTime.Now.AddSeconds(10)
                  };
                  HttpContext.Session.SetString("SessionMail", uye.Mail);
                  HttpContext.Response.Cookies.Append("UserAd", usr.Ad , cookopt);

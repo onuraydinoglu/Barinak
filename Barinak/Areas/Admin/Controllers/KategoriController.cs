@@ -31,7 +31,7 @@ namespace Barinak.Areas.Admin.Controllers
             }
             else
             {
-                TempData["hata"] = "Lütfen Gerekli alanları doldurunuz";
+                TempData["msj"] = "Lütfen Gerekli alanları doldurunuz";
                 return RedirectToAction("KategoriEkle");
             }
         }
@@ -41,7 +41,7 @@ namespace Barinak.Areas.Admin.Controllers
         {
             if (id != y.KategoriID)
             {
-                TempData["hata"] = "Güncelleme Yapılmaz";
+                TempData["msj"] = "Güncelleme Yapılmaz";
                 return View("Hata");
             }
             if (ModelState.IsValid)
@@ -51,20 +51,20 @@ namespace Barinak.Areas.Admin.Controllers
                 TempData["msj"] = y.KategoriAdi + " Kategorisi düzenlendi";
                 return RedirectToAction("Index");
             }
-            TempData["Hata"] = "Lütfen verileri eksiksiz girin";
+            TempData["msj"] = "Lütfen verileri eksiksiz girin";
             return View();
         }
         public IActionResult KategoriDuzenle(int? id)
         {
             if (id is null)
             {
-                TempData["hata"] = "Düzenleme kısmı çalışamaz";
+                TempData["msj"] = "Düzenleme kısmı çalışamaz";
                 return View("Hata");
             }
             var y = k.Kategoriler.FirstOrDefault(x => x.KategoriID == id);
             if (y is null)
             {
-                TempData["hata"] = "Düzenlenece herhangi bir yazar yok";
+                TempData["msj"] = "Düzenlenece herhangi bir kategori yok";
                 return View("Hata");
 
             }
@@ -75,14 +75,14 @@ namespace Barinak.Areas.Admin.Controllers
         {
             if (id is null)
             {
-                TempData["hata"] = "Detay kısmı getirilemez";
+                TempData["msj"] = "Detay kısmı getirilemez";
                 return View("Hata");
             }
 
             var y = k.Kategoriler.Include(x => x.Turler).FirstOrDefault(x => x.KategoriID == id);
             if (y is null)
             {
-                TempData["hata"] = "Herhangi bir yazar bulunamadı";
+                TempData["msj"] = "Herhangi bir kategori bulunamadı";
                 return View("Hata");
             }
             return View(y);
@@ -92,19 +92,19 @@ namespace Barinak.Areas.Admin.Controllers
         {
             if (id is null)
             {
-                TempData["hata"] = "Silme kısmı çalışamaz";
+                TempData["msj"] = "Silme kısmı çalışamaz";
                 return View("Hata");
             }
             var y = k.Kategoriler.Include(x => x.Turler).FirstOrDefault(x => x.KategoriID == id);
             if (y is null)
             {
-                TempData["hata"] = "Silinecek herhangi bir yazar yok";
+                TempData["msj"] = "Silinecek herhangi bir kategori yok";
                 return View("Hata");
 
             }
             if (y.Turler.Count > 0)
             {
-                TempData["hata"] = "Yazarın kitabı olduğundan silme işlemi yapılamaz";
+                TempData["msj"] = "kategorinin turu olduğundan silme işlemi yapılamaz";
                 return View("Hata");
             }
             k.Kategoriler.Remove(y);

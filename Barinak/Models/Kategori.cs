@@ -11,6 +11,6 @@ namespace Barinak.Models
         [Display(Name = "Kategorisi")]
         public string KategoriAdi { get; set; }
 
-        public ICollection<Tur>? Turler { get; set; }
+        public ICollection<Tur> Turler { get; set; }
     }
 }
