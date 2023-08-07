@@ -37,12 +37,12 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 
-Microsoft.AspNetCore.Authentication.AuthenticationBuilder authenticationBuilder = builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+/*Microsoft.AspNetCore.Authentication.AuthenticationBuilder authenticationBuilder = builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
     options.Cookie.Name = "Admin";
     options.LoginPath = "/Home";
     options.AccessDeniedPath = "/GirisYap/Index";
-});
+});*/
 /*builder.Services.AddAuthentication("MyCookieAuthenticationScheme")
         .AddCookie("MyCookieAuthenticationScheme", options =>
         {
