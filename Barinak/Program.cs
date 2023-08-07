@@ -40,9 +40,26 @@ builder.Services.AddSession();
 Microsoft.AspNetCore.Authentication.AuthenticationBuilder authenticationBuilder = builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
     options.Cookie.Name = "Admin";
-    options.LoginPath = "/GirisYap/Index";
+    options.LoginPath = "/Home";
     options.AccessDeniedPath = "/GirisYap/Index";
 });
+/*builder.Services.AddAuthentication("MyCookieAuthenticationScheme")
+        .AddCookie("MyCookieAuthenticationScheme", options =>
+        {
+            options.Cookie.Name = "UserRole";
+            options.LoginPath = "/Home"; // Giriþ yapýlacak sayfa
+            options.AccessDeniedPath = "/GirisYap/Index"; // Eriþim reddedildi sayfasý
+        });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireRole("Admin"));
+});*/
+
+
+
+
 
 var app = builder.Build();
 
