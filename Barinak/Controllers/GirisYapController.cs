@@ -27,6 +27,7 @@ namespace Barinak.Controllers
 
                 HttpContext.Session.SetString("SessionMail", uye.Mail);
                 HttpContext.Response.Cookies.Append("UserRole", userRole ?? "Guest", cookopt);
+                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
             }
             TempData["msj"] = "Hatalı Giriş Yapıldı";
             return View("Index");
