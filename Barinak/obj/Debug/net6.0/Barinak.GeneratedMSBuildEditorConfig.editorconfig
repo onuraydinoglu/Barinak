@@ -40,10 +40,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcS2F0ZWdvcmlcS2F0ZWdvcmlFa2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ONUR/OneDrive/Masaüstü/Barinak/Barinak/Areas/Admin/Views/Kategori/KategoriSil.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcS2F0ZWdvcmlcS2F0ZWdvcmlTaWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/ONUR/OneDrive/Masaüstü/Barinak/Barinak/Areas/Admin/Views/Kullanicilar/Hata.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcS3VsbGFuaWNpbGFyXEhhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -64,10 +60,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcS3VsbGFuaWNpbGFyXFV5ZUR1emVubGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ONUR/OneDrive/Masaüstü/Barinak/Barinak/Areas/Admin/Views/Kullanicilar/UyeSil.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcS3VsbGFuaWNpbGFyXFV5ZVNpbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/ONUR/OneDrive/Masaüstü/Barinak/Barinak/Areas/Admin/Views/Tur/Hata.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHVyXEhhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,10 +78,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ONUR/OneDrive/Masaüstü/Barinak/Barinak/Areas/Admin/Views/Tur/TurEkle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHVyXFR1ckVrbGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ONUR/OneDrive/Masaüstü/Barinak/Barinak/Areas/Admin/Views/Tur/TurSil.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVHVyXFR1clNpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ONUR/OneDrive/Masaüstü/Barinak/Barinak/Areas/Admin/Views/_ViewImports.cshtml]
